@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "71771544-e5ef-413a-8513-119f26a974aa",
+		"name": "Coding Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23651806"
+	},
+	"item": [
+		{
+			"name": "API to authenticate user (Login)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"takshay880\",\r\n    \"password\":\"takshay880\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to add mobile devices (only for Authenticated User)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "d5609fca-abdb-4797-964e-95232cbbbf97",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\": \"Oppo\",\r\n    \"model\": \"A53\",\r\n    \"color\": \"Blue\",\r\n    \"price\": 1399\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8089/mobiles/",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"mobiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to delete mobile devices (only for Authenticated User)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "d5609fca-abdb-4797-964e-95232cbbbf97",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8089/mobiles/8",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"mobiles",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to Fetch all Mobiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/mobiles/",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"mobiles",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to list all phones with filters (filter by Brand, Model, Colour)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/mobiles/filter?brand=samsung&model=&color=",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"mobiles",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "samsung"
+						},
+						{
+							"key": "model",
+							"value": ""
+						},
+						{
+							"key": "color",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to list all phones with Price Range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/mobiles/price?minPrice=700&maxPrice=900",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"mobiles",
+						"price"
+					],
+					"query": [
+						{
+							"key": "minPrice",
+							"value": "700"
+						},
+						{
+							"key": "maxPrice",
+							"value": "900"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API to list all phones in ascending or descending order based on user input.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8089/mobiles/priceOrder?order=asc",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"mobiles",
+						"priceOrder"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
